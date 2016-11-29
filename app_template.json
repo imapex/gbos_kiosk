@@ -16,10 +16,12 @@
         "protocol": "TCP",
         "portIndex": 0
     }],
+    "env": {
+     "TROPO_TOKEN": "TROPO_TOKEN_HERE",
+     "SECRET_KEY": "SECRET_KEY_HERE"
+    },
     "id": "APP_NAME",
     "instances": 1,
     "cpus": 0.1,
-    "mem": 16,
-    "env": {
-    }
+    "mem": 16
 }

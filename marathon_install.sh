@@ -19,8 +19,16 @@ echo
 echo "What is the Lab Application Domain?  "
 read mantl_domain
 echo
+echo "Please provide your Tropo Token (used for sending SMS messages):"
+read TROPO_TOKEN
+echo "Please provide a secret key for your app(can be anything, used under the covers):"
+read SECRET_KEY
 cp app_template.json app.json
+
 sed -i "" -e "s!APP_NAME!$app_name!g" app.json
+sed -i "" -e "s!TROPO_TOKEN_HERE!$TROPO_TOKEN!g" app.json
+sed -i "" -e "s!SECRET_KEY_HERE!$SECRET_KEY!g" app.json
+
 echo " "
 echo "***************************************************"
 echo "Installing gbos_kiosk as $app_name"
@@ -30,8 +38,7 @@ curl -k -X POST -u $mantl_user:$mantl_password https://$control_address:8080/v2/
 | python -m json.tool
 
 # get hostname portion from marathon app name
-reversed=$(echo $app_name | awk -F"/" '{s=$NF;for(i=NF-1;i>=1;i--)s=s FS $i;print s}')
-host=$(echo $reversed | sed -e 's/\//-/g')
+host=$(echo $app_name | sed -e 's/\//-/g')
 
 echo "***************************************************"
 echo
