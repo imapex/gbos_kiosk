@@ -6,9 +6,20 @@ be sent to them via SMS.
 
 [Cisco Tropo](http://tropo.com) is used for the SMS backend.
 
-The backend application for this demo can be found at:
 
-[https://github.com/imapex/gbos_tropo](https://github.com/imapex/gbos_tropo)
+
+# Prerequisites
+
+To use this application effectively, you will need the following
+* An SMS backend The backend application for this demo can be found at:
+    [https://github.com/imapex/gbos_tropo](https://github.com/imapex/gbos_tropo)
+
+    Specifically, you will need the tropo token for this backend application which is provided by the
+    installation script from this repo
+
+* A Mantl or marathon stack
+
+
 
 # Installation
 
